@@ -1,0 +1,193 @@
+
+//---------------------UnitMainH------------------------------------------------------
+private:	// User declarations
+
+     /*
+    // 绘制正弦曲线属性 ...
+    double  dSin[POINTNUMS] ;
+    int     iAmplitude ;  // 振幅/2
+    int     iPeriod ; // 周期 period
+    void __fastcall initdSinAndflyPath() ;//function ...
+    vector<TPoint>  flyPath ;    */   
+//    vector<TPoint>  path1 ,path2 ,path3 ;
+//---------------------UnitMainCPP------------------------------------------------------
+__fastcall TMainForm::TMainForm(TComponent* Owner)
+    : TForm(Owner)
+{
+    //创建线程  TFlyFollow ...
+    flyFollowCursor = new TFlyFollowCursor(this) ; //true ...
+    flyFollowCursor->OnTerminate = ThreadDone ; //指定线程结束事件处理函数
+    path1.push_back(TPoint(0 ,300)) ;
+    path1.push_back(TPoint(Screen->Width/2 ,0)) ;
+    path1.push_back(TPoint(Screen->Width-Image1->Width ,300)) ;
+    path2.assign(path1.rbegin() ,path1.rend()) ;
+    //flyFollowPath1 = new TFlyFollowPath(this ,&path1) ;
+    drawCurves = new TDrawCurves(this ,this->Canvas) ;
+    flyFollowPath = new TFlyFollowPath(this ,drawCurves->getFlyPathPtr()) ;//&flyPath
+
+    TImage* images1[IMAGECOUNT] = { Image1,Image2,Image3,Image4,Image5,Image6 } ;
+    flyAngel = new TFlyAngel(new TFlyAngelImpl(this ,images1 ,&path1)) ;
+    //
+    TImage* images2[] = {FlyBodyForm->Image13 ,FlyBodyForm->Image14 ,FlyBodyForm->Image15 , \
+        FlyBodyForm->Image16 ,FlyBodyForm->Image17 ,FlyBodyForm->Image18 ,    \
+        FlyBodyForm->Image19 ,FlyBodyForm->Image20 ,FlyBodyForm->Image21 , \
+        FlyBodyForm->Image22 ,FlyBodyForm->Image23 ,FlyBodyForm->Image24  } ;
+    TSnow::initImageExamples(images2 ,sizeof(images2)/sizeof(TImage*) ) ;
+    snow = new TSnow(this) ;
+
+    flyFollowPath->setLinkSnow(snow) ;
+
+    TStringList *text=new TStringList();
+    try
+    {
+        text->LoadFromFile("SrollText.txt")   ;
+    }
+    catch(...)
+    {
+        MessageDlg("请将 SrollText.txt 拷贝到同一目录 ！" ,mtWarning ,TMsgDlgButtons()<<mbOK ,0)  ;
+    }
+    srollText = new TSrollText(this ,text) ;
+    delete text ;
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::Timer1Timer(TObject *Sender)
+{
+    static  int iY = 0 ;
+    this->Canvas->FillRect( this->Canvas->ClipRect) ;
+    this->Canvas->MoveTo(0 ,iAmplitude) ;
+    for(unsigned int i=0 ,j=iY=(++iY)%POINTNUMS ;i<POINTNUMS*PERIODS ;i++ ,j++)
+    {
+        int     x = i*iPeriod/POINTNUMS ;
+        //int&     y = dSin[j%POINTNUMS] ; //;x*dSin[i%POINTNUMS]+200 ;
+        this->Canvas->LineTo(x ,dSin[j%POINTNUMS]) ;
+    }   /*
+    static TColor colors[] = { clRed,clYellow,clBlack,clSkyBlue,clWhite,clGray,cl3DDkShadow,\
+        clGreen,clPurple,clCream,clDkGray,clFuchsia,clMaroon,clOlive,clBlue,clHighlight, \
+        clWindow,cl3DLight,clTeal,clSilver,clInactiveBorder,clAqua,clScrollBar } ;   */  
+    static TColor colors[] = { clLime,clRed,clYellow,clOlive,clBlue,clMaroon,clGreen } ;
+    const int COLORKINDS = sizeof(colors)/sizeof(TColor) ;
+    static TPenStyle styles[] = {psSolid, psDash, psDot, psDashDot, psDashDotDot, psClear, psInsideFrame } ;
+    const int STYLEKINDS = sizeof(styles)/sizeof(TPenStyle) ;
+    TPenMode modes[] = {pmBlack, pmWhite, pmNop, pmNot, pmCopy, pmNotCopy, \
+        pmMergePenNot, pmMaskPenNot, pmMergeNotPen, pmMaskNotPen, pmMerge, \
+        pmNotMerge, pmMask, pmNotMask, pmXor, pmNotXor };
+    const int MODEKINDS = sizeof(modes)/sizeof(TPenMode) ;
+    //ShowMessage(String(STYLEKINDS)) ;
+    static int tickCount = 0 ;
+    tickCount++ ;
+    if(tickCount==5)
+    {
+      static int colorIndex=-1 ,styleIndex=-1 ,modeIndex=-1 ;//not int okokok ???
+      colorIndex = (++colorIndex)%COLORKINDS ;
+      styleIndex = (++styleIndex)%STYLEKINDS ;
+      modeIndex = (++modeIndex)%MODEKINDS ;
+      this->Canvas->Pen->Color = colors[colorIndex] ;
+      this->Canvas->Pen->Style = styles[styleIndex]	 ;//
+      this->Canvas->Pen->Mode = modes[modeIndex] ;//
+      tickCount = 0 ;
+    }
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::initdSinAndflyPath()
+{
+    for(int i=0 ;i<POINTNUMS ;i++)
+        dSin[i] =  (iAmplitude-10)*sin(ANGLE*i/180*M_PI)+iAmplitude ; //sin(angle*i/180*M_PI) ;
+    this->Canvas->Pen->Color = clLime ;
+    this->Canvas->Pen->Width = 3 ;
+    int   offset = iPeriod/4 ;
+    flyPath.clear() ;// 清空原始路径 ...
+    //ofstream fout("test.txt") ;
+     /*     
+    int   X = PERIODS*iPeriod ;
+    if(X<0) X = 0 ;
+    else if(X>Screen->Width-Image1->Width)
+        X = Screen->Width-Image1->Width ;
+    for(int i=0 ;i<POINTNUMS ;i+=5)
+    {
+        if(i==10)
+            flyPath.push_back(TPoint(X ,dSin[i]+25)) ;
+        else if(i==30)
+            flyPath.push_back(TPoint(X ,dSin[i]-25)) ;
+        else
+            flyPath.push_back(TPoint(X ,dSin[i])) ;
+        //fout << dSin[i] << "\n" ;
+       
+    }   */  
+    for(int i=0 ;i<PERIODS ;i++)
+    {
+        int temp = i*iPeriod ;
+        flyPath.push_back(TPoint(temp ,dSin[0])) ;
+        flyPath.push_back(TPoint(temp+offset ,dSin[12]+25)) ;
+        flyPath.push_back(TPoint(temp+2*offset ,dSin[20])) ;
+        flyPath.push_back(TPoint(temp+3*offset ,dSin[32]-25)) ;
+    }
+    //ShowMessage(String(flyPath.size())) ;
+    //this->DoubleBuffered = true ;
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::keyDownUpdate(WORD Key)
+{
+    /*
+    switch(Key)
+    {
+    case VK_RIGHT: //ShowMessage("VK_RIGHT") ;
+        if(Screen->Width-Image1->Width>iPeriod*PERIODS+PIECE )
+            iPeriod += PIECE ;
+        else    return ;
+        break ;
+    case VK_LEFT:
+        if(0<iPeriod-PIECE) iPeriod -= PIECE ;
+        else    return ;
+        break ;
+    case VK_UP:
+        if(0<iAmplitude-PIECE) iAmplitude -= PIECE ;
+        else    return ;
+        break ;
+    case VK_DOWN:
+        if(Screen->Height-Image1->Height >iAmplitude*2+PIECE)
+            iAmplitude += PIECE ;
+        else    return ;
+        break ;
+    default :
+        return ;
+    }
+    initdSinAndflyPath() ;     */
+}
+//---------------------------------------------------------------------------
+/*
+void __fastcall TMainForm::keyDownUpdate(WORD Key)
+{
+    int period = drawCurves->getPeriod() ;
+    int amplitude = drawCurves->getAmplitude() ;
+    enum { PERIODS = TDrawCurves::PERIODS } ; 
+    enum { PIECE = TDrawCurves::PIECE } ;
+    switch(Key)
+    {
+    case VK_RIGHT: //ShowMessage("VK_RIGHT") ;
+        if(Screen->Width-Image1->Width>period*PERIODS+PIECE )
+            period += PIECE ;
+        else    return ;
+        break ;
+    case VK_LEFT:
+        if(0<period-PIECE) period -= PIECE ;
+        else    return ;
+        break ;
+    case VK_UP:
+        if(0<amplitude-PIECE) amplitude -= PIECE ;
+        else    return ;
+        break ;
+    case VK_DOWN:
+        if(Screen->Height-Image1->Height >amplitude*2+PIECE)
+            amplitude += PIECE ;
+        else    return ;
+        break ;
+    default :
+        return ;
+    }
+    drawCurves->updatePeriodAmplitude(period ,amplitude) ;
+}          */
+//---------------------------------------------------------------------------
+//---------------------UnitMainH------------------------------------------------------
+//---------------------UnitMainH------------------------------------------------------
+//---------------------UnitMainH------------------------------------------------------
