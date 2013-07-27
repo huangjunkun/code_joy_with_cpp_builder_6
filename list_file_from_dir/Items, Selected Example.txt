@@ -1,0 +1,23 @@
+This example uses a file listbox and a regular listbox on a form. The following routine scans through the files listed in the file listbox and lists the sizes of any selected files to the regular list box:
+
+for (int i = 0; i < FileListBox1->Items->Count; i++)
+
+{ 
+  if (FileListBox1->Selected[i])
+  {
+    if (!FileExists(FileListBox1->Items->Strings[i]))
+    {
+      MessageBeep(0);
+      if (Application->MessageBox(AnsiString("File ") + FileListBox1->Items->Strings[i] + " not found",NULL, MB_OKCANCEL | MB_DEFBUTTON1) == IDCANCEL)
+        break;
+      else
+        continue;
+    }
+    FILE *F = fopen(FileListBox1->Items->Strings[i].c_str(),"r");
+    struct stat statbuf;
+
+    fstat(fileno(F), &statbuf);
+    ListBox1->Items->Add(IntToStr(statbuf.st_size));
+    fclose(F);
+  }
+}

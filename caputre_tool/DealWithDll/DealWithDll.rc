@@ -1,0 +1,671 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\DealWithDll.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "DealWithDll DLL\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "DealWithDll\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2009\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "DealWithDll.DLL\0"
+            VALUE "ProductName", "DealWithDll Dynamic Link Library\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOG DISCARDABLE  0, 0, 238, 135
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "对话"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,181,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,181,24,50,14
+END
+
+IDD_DIALOGASH DIALOG DISCARDABLE  0, 0, 375, 382
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "颜色直方图"
+FONT 10, "宋体"
+BEGIN
+END
+
+IDD_GRAY_ENHANCE DIALOGEX 0, 0, 250, 173
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "色度变换"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "要增强的色度范围（0～255）",IDC_STATIC,7,7,137,70
+    EDITTEXT        IDC_EDIT1,51,20,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "R:",IDC_STATIC,13,20,12,9
+    LTEXT           "从",IDC_STATIC,29,20,13,10
+    LTEXT           "到",IDC_STATIC,91,20,13,10
+    EDITTEXT        IDC_EDIT2,114,20,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "G:",IDC_STATIC,13,38,12,9
+    LTEXT           "从",IDC_STATIC,29,38,13,10
+    LTEXT           "到",IDC_STATIC,91,38,13,10
+    EDITTEXT        IDC_EDIT3,51,38,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT4,114,38,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "B:",IDC_STATIC,13,57,12,9
+    LTEXT           "从",IDC_STATIC,29,57,13,10
+    EDITTEXT        IDC_EDIT5,51,57,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "到",IDC_STATIC,91,57,13,10
+    EDITTEXT        IDC_EDIT6,114,57,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    GROUPBOX        "增强处理后的色度范围（0～255）",IDC_STATIC,7,83,138,67
+    EDITTEXT        IDC_EDIT7,51,96,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "R:",IDC_STATIC,13,96,12,9
+    LTEXT           "从",IDC_STATIC,29,96,13,10
+    LTEXT           "到",IDC_STATIC,91,96,13,10
+    EDITTEXT        IDC_EDIT8,114,96,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "G:",IDC_STATIC,13,114,12,9
+    LTEXT           "从",IDC_STATIC,29,114,13,10
+    LTEXT           "到",IDC_STATIC,91,114,13,10
+    EDITTEXT        IDC_EDIT9,51,114,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    EDITTEXT        IDC_EDIT10,114,114,25,12,ES_AUTOHSCROLL | ES_NUMBER | 
+                    NOT WS_BORDER
+    LTEXT           "B:",IDC_STATIC,13,133,12,9
+    LTEXT           "从",IDC_STATIC,29,133,13,10
+    EDITTEXT        IDC_EDIT11,51,133,25,12,ES_AUTOHSCROLL | ES_NUMBER | NOT 
+                    WS_BORDER
+    LTEXT           "到",IDC_STATIC,91,133,13,10
+    EDITTEXT        IDC_EDIT12,114,133,25,12,ES_AUTOHSCROLL | ES_NUMBER | 
+                    NOT WS_BORDER
+    PUSHBUTTON      "确定",IDOK,7,152,43,14
+    PUSHBUTTON      "取消",IDC_ANCEL,55,152,43,14
+    PUSHBUTTON      "预览",IDC_BUTTON1,101,152,43,14
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,163,14,70,69,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,163,92,70,69,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_TEMPLATE DIALOGEX 0, 0, 203, 197
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像平滑"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           "1",IDC_STATIC,55,15,15,13
+    LTEXT           "1",IDC_STATIC,70,14,15,13
+    LTEXT           "1",IDC_STATIC,85,14,15,13
+    LTEXT           "1",IDC_STATIC,55,30,15,13
+    LTEXT           "1",IDC_STATIC,70,30,15,13
+    LTEXT           "1",IDC_STATIC,85,30,15,13
+    LTEXT           "1",IDC_STATIC,55,46,15,11
+    LTEXT           "1",IDC_STATIC,70,46,15,11
+    LTEXT           "1",IDC_STATIC,85,46,15,13
+    LTEXT           "1",IDC_STATIC,55,64,15,13
+    LTEXT           "1",IDC_STATIC,70,63,15,13
+    LTEXT           "1",IDC_STATIC,85,63,15,13
+    LTEXT           "1",IDC_STATIC,55,79,15,13
+    LTEXT           "2",IDC_STATIC,70,78,15,13
+    LTEXT           "1",IDC_STATIC,85,78,15,13
+    LTEXT           "1",IDC_STATIC,55,95,15,11
+    LTEXT           "1",IDC_STATIC,70,94,15,11
+    LTEXT           "1",IDC_STATIC,85,94,15,12
+    LTEXT           "1",IDC_STATIC,55,112,15,13
+    LTEXT           "2",IDC_STATIC,70,111,15,13
+    LTEXT           "1",IDC_STATIC,85,111,15,13
+    LTEXT           "2",IDC_STATIC,55,127,15,13
+    LTEXT           "4",IDC_STATIC,70,126,15,13
+    LTEXT           "2",IDC_STATIC,85,126,15,13
+    LTEXT           "1",IDC_STATIC,55,143,15,13
+    LTEXT           "2",IDC_STATIC,70,142,15,13
+    LTEXT           "1",IDC_STATIC,85,142,15,13
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,59,94,
+                    2
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,107,
+                    94,2
+    GROUPBOX        "消噪声掩膜法",IDC_STATIC,7,7,95,182
+    CONTROL         "模版一",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,12,28,38,10
+    CONTROL         "模版二",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,12,79,38,
+                    10
+    CONTROL         "模版三",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,12,128,
+                    38,10
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,158,
+                    95,2
+    PUSHBUTTON      "确定",IDOK,7,172,41,14
+    PUSHBUTTON      "取消",IDCA,52,172,41,14
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,114,16,65,72,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,114,106,66,72,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_DIATEMPLATE DIALOGEX 0, 0, 219, 182
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像平滑"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,7,154,50,14
+    PUSHBUTTON      "取消",IDCANCEL,60,154,48,14
+    GROUPBOX        "领域平均法",IDC_STATIC,7,7,101,141
+    CONTROL         "M为4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    15,44,31,10
+    CONTROL         "M为8",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,15,102,31,
+                    10
+    LTEXT           "0",IDC_STATIC,50,30,15,12
+    LTEXT           "1",IDC_STATIC,68,30,15,12
+    LTEXT           "0",IDC_STATIC,84,30,15,12
+    LTEXT           "1",IDC_STATIC,50,46,15,12
+    LTEXT           "0",IDC_STATIC,50,60,15,12
+    LTEXT           "0",IDC_STATIC,68,46,15,12
+    LTEXT           "1",IDC_STATIC,68,60,15,12
+    LTEXT           "1",IDC_STATIC,84,46,15,12
+    LTEXT           "0",IDC_STATIC,84,60,15,12
+    LTEXT           "1",IDC_STATIC,50,86,15,12
+    LTEXT           "1",IDC_STATIC,69,86,15,12
+    LTEXT           "1",IDC_STATIC,85,86,15,12
+    LTEXT           "1",IDC_STATIC,50,102,15,12
+    LTEXT           "1",IDC_STATIC,50,116,15,12
+    LTEXT           "0",IDC_STATIC,69,102,15,12
+    LTEXT           "1",IDC_STATIC,69,116,15,12
+    LTEXT           "1",IDC_STATIC,85,102,15,12
+    LTEXT           "1",IDC_STATIC,85,116,15,12
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,15,77,
+                    77,2
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,135,15,68,71,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,135,98,68,71,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_MEDIAN_FILTER DIALOGEX 0, 0, 235, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "中值滤波"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,15,146,50,14
+    PUSHBUTTON      "取消",IDCANCEL,72,145,50,14
+    GROUPBOX        "中值滤波参数设定",IDC_STATIC,15,13,107,117
+    CONTROL         "3×3中值窗",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,37,39,54,10
+    CONTROL         "5×5中值窗",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,37,
+                    69,54,10
+    CONTROL         "7×7中值窗",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,37,
+                    103,54,10
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,138,14,69,67,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,139,93,69,67,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_LAPLAC_TEMP DIALOGEX 0, 0, 217, 168
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像锐化"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,7,136,50,14
+    PUSHBUTTON      "取消",IDCANCEL,65,136,50,14
+    GROUPBOX        "拉普拉斯算子",IDC_STATIC,7,7,106,102
+    RTEXT           "0",IDC_STATIC,59,21,10,8
+    RTEXT           "-1",IDC_STATIC,59,33,10,8
+    RTEXT           "0",IDC_STATIC,59,45,10,8
+    RTEXT           "-1",IDC_STATIC,76,21,10,8
+    RTEXT           "4",IDC_STATIC,75,33,10,8
+    RTEXT           "-1",IDC_STATIC,75,45,10,8
+    RTEXT           "0",IDC_STATIC,94,21,10,8
+    RTEXT           "-1",IDC_STATIC,94,33,10,8
+    RTEXT           "0",IDC_STATIC,94,45,10,8
+    RTEXT           "-1",IDC_STATIC,62,67,10,8
+    RTEXT           "-1",IDC_STATIC,61,79,10,8
+    RTEXT           "-1",IDC_STATIC,61,91,10,8
+    RTEXT           "-1",IDC_STATIC,78,67,10,8
+    RTEXT           "8",IDC_STATIC,78,79,10,8
+    RTEXT           "-1",IDC_STATIC,78,91,10,8
+    RTEXT           "-1",IDC_STATIC,96,67,10,8
+    RTEXT           "-1",IDC_STATIC,96,79,10,8
+    RTEXT           "-1",IDC_STATIC,96,91,10,8
+    CONTROL         "算子一",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,13,33,38,
+                    10
+    CONTROL         "算子二",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,77,38,
+                    10
+    CONTROL         "其他算子",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,13,118,
+                    46,10
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,127,14,73,66,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,126,89,73,66,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_RILIEVOCARVE DIALOGEX 0, 0, 219, 156
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "层次处理"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,52,121,50,14
+    PUSHBUTTON      "取消",IDCANCEL,112,121,50,14
+    CONTROL         "浮雕",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    67,105,31,10
+    CONTROL         "雕刻",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,123,105,31,
+                    10
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,27,22,66,66,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,123,22,66,66,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_DIAREVER DIALOGEX 0, 0, 207, 181
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像翻转"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,35,148,50,14
+    PUSHBUTTON      "取消",IDCANCEL,105,148,50,14
+    CONTROL         "上下翻转",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,40,128,46,10
+    CONTROL         "左右翻转",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,110,
+                    128,46,10
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,25,26,58,64,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "对比",IDC_STATIC,93,50,16,8
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,117,26,58,64,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_DLGROTATION DIALOGEX 0, 0, 243, 183
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像旋转"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,24,154,50,14
+    PUSHBUTTON      "取消",IDCANCEL,160,154,50,14
+    EDITTEXT        IDC_EDIT1,153,134,32,12,ES_AUTOHSCROLL
+    CONTROL         "Spin2",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,185,131,10,18
+    LTEXT           "旋转角度:",IDC_STATIC,14,138,35,10
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_BOTH | WS_TABSTOP,52,127,100,27
+    PUSHBUTTON      "预览",IDC_BUTTON1,199,133,31,14
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,142,23,15,15,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "对比",IDC_STATIC,109,50,16,10
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,34,23,15,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "原始大小",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,42,112,
+                    46,10
+    CONTROL         "扩充画布",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,149,
+                    111,46,10
+END
+
+IDD_DLG_PIXEL DIALOGEX 0, 0, 294, 184
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "色度变换"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,111,148,50,14
+    PUSHBUTTON      "取消",IDCANCEL,230,150,50,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,146,47,99,15
+    LTEXT           "斜率k：",IDC_STATIC,121,52,27,8
+    LTEXT           "截距b：",IDC_STATIC,121,71,27,8
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,146,66,99,15
+    CONTROL         "Slider1",IDC_SLIDER3,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,146,110,99,15
+    LTEXT           "参数K：",IDC_STATIC,121,114,27,8
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,16,15,74,70,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,16,100,74,70,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "线性变换 k*f(x,y)+b",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON,109,31,90,10
+    CONTROL         "对数变换 K*log(f(x,y)-1)",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON,109,94,110,10
+    EDITTEXT        IDC_EDIT1,246,47,24,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,270,46,10,14
+    EDITTEXT        IDC_EDIT2,246,67,24,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin2",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,271,67,10,14
+    EDITTEXT        IDC_EDIT3,246,110,24,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin3",IDC_SPIN3,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,270,109,10,14
+END
+
+IDD_DIAHSV DIALOGEX 0, 0, 277, 169
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "色度/饱和度/对比度"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,98,140,50,14
+    PUSHBUTTON      "取消",IDCANCEL,202,140,50,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,130,38,93,15
+    CONTROL         "Slider2",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,130,74,93,15
+    CONTROL         "Slider3",IDC_SLIDER3,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,130,111,93,15
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,13,15,70,65,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,15,97,70,65,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "色度：",IDC_STATIC,98,43,23,8
+    LTEXT           "饱和度：",IDC_STATIC,98,78,31,8
+    LTEXT           "对比度：",IDC_STATIC,98,113,31,8
+    EDITTEXT        IDC_EDIT1,225,39,27,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,252,39,10,14
+    EDITTEXT        IDC_EDIT2,225,74,27,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin2",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,252,73,10,14
+    EDITTEXT        IDC_EDIT3,225,111,27,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin3",IDC_SPIN3,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,252,110,10,14
+END
+
+IDD_DIARGB DIALOGEX 0, 0, 290, 172
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "红/绿/蓝"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,99,130,50,14
+    PUSHBUTTON      "取消",IDCANCEL,196,130,50,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,122,42,90,15
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,122,66,90,15
+    CONTROL         "Slider1",IDC_SLIDER3,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,122,93,90,15
+    LTEXT           "蓝色：",IDC_STATIC,99,44,23,8
+    LTEXT           "绿色：",IDC_STATIC,99,70,23,8
+    LTEXT           "红色：",IDC_STATIC,99,96,23,8
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP,16,93,66,59,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP,14,15,66,59,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT1,213,44,23,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin2",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,236,44,10,14
+    EDITTEXT        IDC_EDIT2,213,67,23,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin4",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,236,67,10,14
+    EDITTEXT        IDC_EDIT3,213,92,23,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin5",IDC_SPIN3,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,236,91,10,14
+END
+
+IDD_DIGASH DIALOG DISCARDABLE  0, 0, 209, 154
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图像灰度变换"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,23,126,50,14
+    PUSHBUTTON      "取消",IDCANCEL,141,126,50,14
+    LTEXT           "灰度：",IDC_STATIC,23,105,23,8
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,50,100,100,15
+    EDITTEXT        IDC_EDIT1,154,102,26,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,181,100,10,14
+    CONTROL         "",IDC_STATIC1,"Static",SS_BITMAP | SS_SUNKEN,23,18,67,
+                    63
+    CONTROL         "",IDC_STATIC2,"Static",SS_BITMAP | SS_SUNKEN,124,18,67,
+                    63
+    CONTROL         "浮点法",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,23,85,38,
+                    10
+    CONTROL         "平均法",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,141,85,
+                    38,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_DIALOGASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 368
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 375
+    END
+
+    IDD_GRAY_ENHANCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+
+    IDD_TEMPLATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 190
+    END
+
+    IDD_DIATEMPLATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_MEDIAN_FILTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 167
+    END
+
+    IDD_LAPLAC_TEMP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_RILIEVOCARVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_DIAREVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    IDD_DLGROTATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_DLG_PIXEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 287
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 177
+    END
+
+    IDD_DIAHSV, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_DIARGB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+    END
+
+    IDD_DIGASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// SKINMAGIC
+//
+
+TUSK1                   SKINMAGIC DISCARDABLE   "res\\skinmagi.bin"
+TUSK2                   SKINMAGIC DISCARDABLE   "futuraIII.smf"
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\DealWithDll.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

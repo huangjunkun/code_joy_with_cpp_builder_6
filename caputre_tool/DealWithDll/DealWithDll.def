@@ -1,0 +1,20 @@
+; DealWithDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "DealWithDll"
+DESCRIPTION  'DealWithDll Windows Dynamic Link Library'
+
+EXPORTS
+GrayLinTrans
+HistEnhance
+TemplateSoften
+NearbySoften
+MedianFilter
+LaplacSharp
+CarveRilievo
+ImageRever
+RotaTion
+LinerTranslation
+HSVTranslation
+RGBTranslation
+AshTrans
+    ; Explicit exports can go here

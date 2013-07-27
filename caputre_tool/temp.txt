@@ -1,0 +1,58 @@
+JPEG图像文件(.jpg)|*.jpg|BMP位图文件(.bmp)|*.bmp|ICO图标文件(.ico)|*.ico|WMF图元文件(.wmf)|*.wmf
+// ???????????????????????????????????????????????????
+
+//---------------------------------------------------------------------------
+
+void __fastcall TRForm::tbOKClick(TObject *Sender)
+{ // ............copy image to clipboard....
+    //Clipboard()->Open();
+    int DataHandle;
+    HPALETTE APalette;
+    unsigned short MyFormat= CF_BITMAP ;  //
+    Graphics::TBitmap *Bitmap = new Graphics::TBitmap();
+    //TPicture*   pic = new TPicture ;
+    //TImage* image = new TImage(this) ;
+    //image->Parent = this ;
+    //image->Visible = false ;
+    Bitmap->Width = selectedRt.Width() ;
+    Bitmap->Height = selectedRt.Height() ;
+    //Bitmap->Canvas->FillRect( Bitmap->Canvas->ClipRect) ;
+    try
+    {
+      if(Image2->Visible)
+      {
+        Bitmap->Assign(Image2->Picture->Graphic) ;
+        //pic->Assign(Bitmap) ;
+        //image->Picture->Assign(Bitmap)
+      }
+      else
+      {
+        Bitmap->Canvas->CopyRect(Bitmap->Canvas->ClipRect ,Image1->Canvas ,selectedRt) ;
+        //pic->Graphic =  Bitmap ;  //or : pic->Assign(Bitmap) ;
+        //image->Picture->Assign(Bitmap) ;  ShowMessage("Assign") ;
+         // ...
+      }
+      // generate a clipboard format, with data and palette
+      Bitmap->SaveToClipboardFormat(MyFormat,DataHandle,APalette);
+      //pic->SaveToClipboardFormat(MyFormat,DataHandle,APalette) ;
+      //image->Picture->SaveToClipboardFormat(MyFormat,DataHandle,APalette) ;
+
+      // save the data to the clipboard using that format and
+      // the generated data
+      Clipboard()->SetAsHandle(MyFormat,DataHandle);
+    }
+    catch (Exception& e)
+    {
+       ShowMessage("Failed to copy image to clipboard!");
+       delete Bitmap;
+       //Clipboard()->Close();
+    }
+    delete Bitmap ;
+    //delete pic ;
+   // delete image ;
+    //Clipboard()->Close();
+    Image1DblClick(Sender) ;
+}
+//---------------------------------------------------------------------------
+
+//?????????????????????????????
